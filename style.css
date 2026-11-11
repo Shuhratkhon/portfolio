@@ -1,0 +1,268 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #3b82f6;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #334155;
+    --success: #22c55e;
+    --purple: #a855f7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a:focus-visible {
+    outline: 3px solid #fbbf24;
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    background: #fbbf24;
+    color: #111;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+.container {
+    width: min(1060px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+/* ===== Top bar ===== */
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 14px max(calc((100% - 1060px) / 2), 16px);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: all 0.2s;
+}
+
+.nav a:hover {
+    color: var(--text);
+    background: #1e293b;
+}
+
+/* ===== Hero ===== */
+.hero {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 4.5rem 0 4rem;
+}
+
+.eyebrow {
+    font: 0.75rem Consolas, monospace;
+    letter-spacing: 0.12em;
+    color: #93c5fd;
+    margin-bottom: 0.8rem;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 4.6vw, 3.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lead {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    max-width: 560px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.8rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.3rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: var(--text);
+    background: #334155;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    border-color: #60a5fa;
+}
+
+.btn.primary {
+    background: var(--accent);
+}
+
+.btn.primary:hover {
+    background: #2563eb;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.7rem;
+    margin-top: 2.2rem;
+    max-width: 520px;
+}
+
+.hero-stats div {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.7rem 0.9rem;
+}
+
+.hero-stats b {
+    display: block;
+    font-size: 1.4rem;
+    color: #93c5fd;
+}
+
+.hero-stats small {
+    color: var(--muted);
+}
+
+.hero-side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.2), 0 12px 30px rgba(0, 0, 0, 0.4);
+    margin-bottom: -40px;
+    position: relative;
+    z-index: 2;
+    background: var(--card);
+}
+
+/* workflow diagram */
+.flow {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 50px 10px 10px;
+}
+
+.flow .line {
+    fill: none;
+    stroke: #60a5fa;
+    stroke-width: 2;
+    stroke-dasharray: 6 6;
+    animation: flow 1.2s linear infinite;
+}
+
+.flow .node rect {
+    fill: #1e3a8a;
+    stroke: #a78bfa;
+}
+
+.flow text {
+    fill: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    text-anchor: middle;
+}
+
+.flow text.sub {
+    fill: #cbd5e1;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.flow text.center {
+    fill: var(--muted);
+    font: 12px Consolas, monospace;
+}
+
+@keyframes flow {
+    to {
+        stroke-dashoffset: -24;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flow .line {
+        animation: none;
+    }
+}
