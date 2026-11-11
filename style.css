@@ -17,6 +17,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -711,4 +712,77 @@ footer {
 .filter:focus-visible {
     outline: 3px solid #fbbf24;
     outline-offset: 2px;
+}
+
+/* ===== Mobile layout ===== */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-top: 3rem;
+    }
+
+    .project.big {
+        grid-template-columns: 1fr;
+    }
+
+    .small-projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .achievements {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .roadmap {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        padding-top: 10px;
+        padding-bottom: 8px;
+    }
+
+    /* nav scrolls sideways instead of breaking the page */
+    .nav {
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .nav a {
+        flex-shrink: 0;
+        padding: 4px 10px;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid,
+    .skills,
+    .small-projects {
+        grid-template-columns: 1fr;
+    }
+
+    .achievements {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .project {
+        padding: 1.1rem;
+    }
 }
