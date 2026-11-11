@@ -26,7 +26,7 @@ const observer = new IntersectionObserver(entries => {
             observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1 });
+}, { rootMargin: "0px 0px -80px 0px" }); // no threshold, tall sections never reach 10% on a phone
 
 sections.forEach(section => {
     section.classList.add("fade");
