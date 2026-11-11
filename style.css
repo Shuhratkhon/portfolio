@@ -266,3 +266,85 @@ a:focus-visible {
         animation: none;
     }
 }
+
+/* ===== Sections ===== */
+.section {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.section h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin-bottom: 1.6rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+}
+
+.about-text p {
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+}
+
+.facts {
+    list-style: none;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 0.4rem 1.2rem;
+}
+
+.facts li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.facts li:last-child {
+    border-bottom: 0;
+}
+
+.facts span {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+/* skills */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.skill-group {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+}
+
+.skill-group h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chips span {
+    background: #334155;
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.85rem;
+}
