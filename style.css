@@ -231,22 +231,10 @@ button:focus-visible {
     grid-template-columns: 1.25fr 1fr;
     gap: 2rem;
     align-items: center;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 190px);
     padding: 3rem 0;
 }
 
-.status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.82rem;
-    color: #cbd5e1;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.3rem 0.9rem;
-    margin-bottom: 1.4rem;
-}
 
 .live-dot {
     width: 8px;
@@ -1252,4 +1240,169 @@ img.mono {
     font: 7px/1.45 Consolas, monospace;
     color: #4ade80;
     overflow: hidden;
+}
+
+/* ===== Neon-style pieces ===== */
+
+/* thin bar above the menu */
+.announce {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+    color: #e2e8f0;
+    text-decoration: none;
+    background: linear-gradient(90deg, rgba(30, 58, 138, 0.6), rgba(76, 29, 149, 0.6), rgba(30, 58, 138, 0.6));
+    border-bottom: 1px solid var(--border);
+}
+
+.announce:hover .announce-arrow {
+    transform: translateX(4px);
+}
+
+.announce-arrow {
+    transition: transform 0.2s;
+}
+
+/* big outlined section number with a small label */
+.sec-head {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.sec-num {
+    font: 300 4.2rem/0.85 Consolas, monospace;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(165, 180, 252, 0.45);
+}
+
+.sec-label {
+    font: 0.75rem Consolas, monospace;
+    letter-spacing: 0.14em;
+    color: #a5b4fc;
+    padding-bottom: 0.3rem;
+}
+
+/* boxes with big numbers */
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.num-box {
+    position: relative;
+    border: 1px solid rgba(165, 180, 252, 0.25);
+    background: rgba(2, 6, 23, 0.6);
+    padding: 2.2rem 1.4rem 1.3rem;
+}
+
+.num-tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.3rem 0.8rem;
+    background: rgba(51, 65, 85, 0.55);
+    font: 0.72rem Consolas, monospace;
+    color: #cbd5e1;
+}
+
+.num-box b {
+    display: block;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.num-box small {
+    color: var(--muted);
+}
+
+/* terminal line under the contacts */
+.terminal {
+    display: block;
+    margin-top: 1.3rem;
+    padding: 1rem 1.2rem;
+    background: #020617;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font: 0.95rem Consolas, monospace;
+    color: #e2e8f0;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.terminal:hover {
+    border-color: rgba(139, 92, 246, 0.6);
+}
+
+.prompt {
+    color: var(--success);
+    margin-right: 0.4rem;
+}
+
+.cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.1em;
+    margin-left: 0.2rem;
+    vertical-align: text-bottom;
+    background: #e2e8f0;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .sec-num {
+        font-size: 3rem;
+    }
+
+    .numbers {
+        grid-template-columns: 1fr;
+    }
+
+    .announce {
+        font-size: 0.75rem;
+    }
+}
+
+/* brand coloured squares for the contact logos */
+.contact .icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.contact .icon img {
+    width: 22px;
+    height: 22px;
+}
+
+.contact .icon.gmail {
+    background: #ea4335;
+}
+
+.contact .icon.telegram {
+    background: #229ed9;
+}
+
+.contact .icon.github {
+    background: #24292f;
+    border: 1px solid #3d444d;
 }

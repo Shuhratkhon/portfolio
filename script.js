@@ -64,7 +64,6 @@ const icons = {
     "JavaScript": devicon + "javascript/javascript-original.svg",
     "SQL": devicon + "azuresqldatabase/azuresqldatabase-original.svg",
     "Java": devicon + "java/java-original.svg",
-    "pandas": devicon + "pandas/pandas-original.svg",
     "NumPy": devicon + "numpy/numpy-original.svg",
     "scikit-learn": devicon + "scikitlearn/scikitlearn-original.svg",
     "Matplotlib": devicon + "matplotlib/matplotlib-original.svg",
@@ -80,6 +79,7 @@ const icons = {
 
 // these logos are black, so they get inverted to show on the dark background
 const darkIcons = {
+    "pandas": devicon + "pandas/pandas-original.svg",
     "Flask": devicon + "flask/flask-original.svg",
     "Three.js": devicon + "threejs/threejs-original.svg",
     "Google Colab": simple + "googlecolab.svg",
