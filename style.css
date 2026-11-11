@@ -683,7 +683,7 @@ button:focus-visible {
 /* ===== Achievements ===== */
 .achievements {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
 
@@ -951,10 +951,6 @@ footer {
 
     .achievements {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .achievement.gold {
-        grid-column: span 2;
     }
 
     .section {
