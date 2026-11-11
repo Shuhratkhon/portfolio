@@ -11,6 +11,15 @@
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
 
+    <!-- same night sky as my course homepage -->
+    <div class="space-effects" aria-hidden="true">
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+        <span class="shooting-star"></span>
+    </div>
+
     <header class="topbar">
         <a class="logo" href="#top">Shuhratkhon<span>.</span></a>
         <nav class="nav">
@@ -25,6 +34,7 @@
     <main id="main">
         <section class="hero container" id="top">
             <div class="hero-text">
+                <p class="status"><span class="live-dot"></span>Currently learning SQL for Data Science</p>
                 <p class="eyebrow">STUDENT · GACHON UNIVERSITY · SEONGNAM</p>
                 <h1>Hi, I'm <span>Shuhratkhon</span>.<br>I turn data into things people can use.</h1>
                 <p class="lead">I write Python to collect and analyse data, train simple models, and then put the results on the web. Pharmacy databases, game review analysis, a 3D solar system, all built while studying at Gachon.</p>
@@ -40,28 +50,25 @@
                 </div>
             </div>
 
-            <div class="hero-side">
-                <img class="avatar" src="https://github.com/Shuhratkhon.png" alt="Photo of Shuhratkhon Izatullaev">
-
-                <!-- the way most of my projects work, from data to a website -->
-                <svg class="flow" viewBox="0 0 320 250" role="img" aria-labelledby="flow-title">
-                    <title id="flow-title">How I build things: collect data, analyse it with Python, store it, then show it on the web</title>
-                    <path class="line" d="M80 45 H240" />
-                    <path class="line" d="M240 70 V180" />
-                    <path class="line" d="M240 205 H80" />
-                    <path class="line" d="M80 180 V70" />
-                    <g class="node"><rect x="20" y="20" width="120" height="50" rx="10" /><text x="80" y="42">Collect</text><text class="sub" x="80" y="58">scrapers · CSV</text></g>
-                    <g class="node"><rect x="180" y="20" width="120" height="50" rx="10" /><text x="240" y="42">Analyse</text><text class="sub" x="240" y="58">pandas · sklearn</text></g>
-                    <g class="node"><rect x="180" y="180" width="120" height="50" rx="10" /><text x="240" y="202">Store</text><text class="sub" x="240" y="218">PostgreSQL</text></g>
-                    <g class="node"><rect x="20" y="180" width="120" height="50" rx="10" /><text x="80" y="202">Show</text><text class="sub" x="80" y="218">HTML · JS · Flask</text></g>
-                    <text class="center" x="160" y="130">my workflow</text>
-                </svg>
+            <!-- photo with my main tools orbiting around it -->
+            <div class="hero-side" aria-hidden="true">
+                <div class="orbit">
+                    <div class="orbit-ring big"></div>
+                    <div class="orbit-ring small"></div>
+                    <div class="photo-ring">
+                        <img class="avatar" src="https://github.com/Shuhratkhon.png" alt="">
+                    </div>
+                    <span class="planet p1">Python</span>
+                    <span class="planet p2">SQL</span>
+                    <span class="planet p3">JS</span>
+                    <span class="planet p4">ML</span>
+                </div>
             </div>
         </section>
 
         <section class="section container" id="about">
             <p class="eyebrow">01 / ABOUT</p>
-            <h2>A bit about me</h2>
+            <h2>A bit <span>about me</span></h2>
             <div class="about-grid">
                 <div class="about-text">
                     <p>I'm a student at Gachon University in Seongnam, South Korea. I like problems where you start with a messy pile of data and end with a clear answer, or with a website someone can actually click around in.</p>
@@ -78,7 +85,7 @@
 
         <section class="section container" id="skills">
             <p class="eyebrow">02 / SKILLS</p>
-            <h2>What I work with</h2>
+            <h2>What I <span>work with</span></h2>
             <div class="skills">
                 <div class="skill-group">
                     <h3>Languages</h3>
@@ -110,7 +117,7 @@
 
         <section class="section container" id="projects">
             <p class="eyebrow">03 / PROJECTS</p>
-            <h2>Things I've built</h2>
+            <h2>Things I've <span>built</span></h2>
             <p class="section-lead">The three big ones come with a diagram of how they work inside. Everything else is below.</p>
 
             <div class="filters" id="filters">
@@ -253,7 +260,7 @@
 
         <section class="section container" id="achievements">
             <p class="eyebrow">04 / ACHIEVEMENTS</p>
-            <h2>Achievements &amp; scores</h2>
+            <h2>Achievements &amp; <span>scores</span></h2>
             <div class="achievements">
                 <div class="achievement gold">
                     <span class="icon">🥈</span>
@@ -263,7 +270,7 @@
                 <div class="achievement">
                     <span class="icon">💻</span>
                     <h3>PDP Hackathon</h3>
-                    <p>Competed in a team hackathon by PDP</p>
+                    <p>Hackathon by PDP</p>
                 </div>
                 <div class="achievement">
                     <span class="icon">🎓</span>
@@ -285,7 +292,7 @@
 
         <section class="section container" id="courses">
             <p class="eyebrow">05 / COURSES</p>
-            <h2>My learning path</h2>
+            <h2>My learning <span>path</span></h2>
             <p class="section-lead">Online courses on Coursera, sorted by where I am with them.</p>
 
             <div class="roadmap">
@@ -333,7 +340,7 @@
 
         <section class="section container" id="contact">
             <p class="eyebrow">06 / CONTACT</p>
-            <h2>Let's talk</h2>
+            <h2>Let's <span>talk</span></h2>
             <p class="section-lead">Want to team up on a project, or have a question about my work? Message me anywhere below.</p>
             <div class="contacts">
                 <a class="contact" href="mailto:shuhratxonizatullayev@gmail.com">
