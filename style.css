@@ -1406,3 +1406,31 @@ img.mono {
     background: #24292f;
     border: 1px solid #3d444d;
 }
+
+/* ===== Line globe behind the achievements ===== */
+#achievements {
+    position: relative;
+}
+
+#achievements > *:not(.globe) {
+    position: relative;
+    z-index: 1;
+}
+
+.globe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    /* soft fade at the edges so it blends into the page */
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 55%, transparent 80%);
+    mask-image: radial-gradient(ellipse at center, #000 55%, transparent 80%);
+}
+
+/* lighter cards here so the globe shows through */
+#achievements .achievement {
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(2px);
+}

@@ -111,3 +111,122 @@ document.querySelectorAll(".chips span").forEach(chip => {
         chip.prepend(badge);
     }
 });
+
+// line globe behind the achievements, the lines near the mouse light up
+const globe = document.querySelector(".globe");
+
+if (globe) {
+    const ctx = globe.getContext("2d");
+    const area = document.getElementById("achievements");
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mouse = { x: -9999, y: -9999 };
+    let angle = 0;
+    let width = 0;
+    let height = 0;
+    let onScreen = false;
+
+    function resize() {
+        const ratio = window.devicePixelRatio || 1;
+        width = globe.clientWidth;
+        height = globe.clientHeight;
+        globe.width = width * ratio;
+        globe.height = height * ratio;
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    }
+
+    // point on the sphere (degrees) -> x, y on the canvas and z (z > 0 means front side)
+    function project(lat, lon, r, cx, cy) {
+        const la = lat * Math.PI / 180;
+        const lo = lon * Math.PI / 180 + angle;
+        const x = Math.cos(la) * Math.sin(lo);
+        const y = Math.sin(la);
+        const z = Math.cos(la) * Math.cos(lo);
+
+        // tilt it a bit so we see the top of the globe
+        const tilt = 0.35;
+        const y2 = y * Math.cos(tilt) - z * Math.sin(tilt);
+        const z2 = y * Math.sin(tilt) + z * Math.cos(tilt);
+
+        return { x: cx + x * r, y: cy - y2 * r, z: z2 };
+    }
+
+    function drawLine(points) {
+        for (let i = 1; i < points.length; i++) {
+            const a = points[i - 1];
+            const b = points[i];
+            const dist = Math.hypot((a.x + b.x) / 2 - mouse.x, (a.y + b.y) / 2 - mouse.y);
+            const near = Math.max(0, 1 - dist / 150); // 1 under the mouse, 0 far away
+            const front = a.z + b.z > 0;
+
+            const alpha = (front ? 0.22 : 0.06) + near * 0.75;
+            ctx.strokeStyle = near > 0 ? `rgba(196, 181, 253, ${alpha})` : `rgba(147, 197, 253, ${alpha})`;
+            ctx.lineWidth = 1 + near * 1.3;
+            ctx.shadowBlur = near * 16;
+            ctx.shadowColor = "rgba(167, 139, 250, 0.9)";
+
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
+        const r = Math.min(width * 0.42, height * 0.85, 460);
+        const cx = width / 2;
+        const cy = height * 0.6;
+
+        // latitude rings
+        for (let lat = -75; lat <= 75; lat += 15) {
+            const points = [];
+            for (let lon = 0; lon <= 360; lon += 5) {
+                points.push(project(lat, lon, r, cx, cy));
+            }
+            drawLine(points);
+        }
+
+        // longitude lines
+        for (let lon = 0; lon < 360; lon += 15) {
+            const points = [];
+            for (let lat = -90; lat <= 90; lat += 5) {
+                points.push(project(lat, lon, r, cx, cy));
+            }
+            drawLine(points);
+        }
+    }
+
+    function loop() {
+        if (!onScreen) return;
+        angle += 0.0025;
+        draw();
+        requestAnimationFrame(loop);
+    }
+
+    // only spin while the section is on screen
+    new IntersectionObserver(entries => {
+        onScreen = entries[0].isIntersecting;
+        if (onScreen && !still) loop();
+    }).observe(area);
+
+    area.addEventListener("pointermove", event => {
+        const rect = globe.getBoundingClientRect();
+        mouse.x = event.clientX - rect.left;
+        mouse.y = event.clientY - rect.top;
+        if (still) draw();
+    });
+
+    area.addEventListener("pointerleave", () => {
+        mouse.x = -9999;
+        mouse.y = -9999;
+        if (still) draw();
+    });
+
+    window.addEventListener("resize", () => {
+        resize();
+        draw();
+    });
+
+    resize();
+    draw();
+}
