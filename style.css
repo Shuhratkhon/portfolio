@@ -336,136 +336,76 @@ button:focus-visible {
 }
 
 
-/* photo with orbiting skills */
+/* photo: same blue ring as the github button on my course homepage, with waves */
 .hero-side {
     display: flex;
     justify-content: center;
 }
 
-.orbit {
+.photo-wave {
     position: relative;
-    width: 380px;
-    height: 380px;
-    flex-shrink: 0;
-}
-
-.orbit-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    border: 1px dashed rgba(165, 180, 252, 0.25);
-    transform: translate(-50%, -50%);
-}
-
-.orbit-ring.big {
-    width: 360px;
-    height: 360px;
-}
-
-.orbit-ring.small {
-    width: 260px;
-    height: 260px;
-    border-color: rgba(244, 114, 182, 0.2);
-}
-
-.photo-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 170px;
-    height: 170px;
-    margin: -85px 0 0 -85px;
-}
-
-/* spinning colour ring behind the photo */
-.photo-ring::before,
-.photo-ring::after {
-    content: "";
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    background: conic-gradient(#60a5fa, #a78bfa, #f472b6, #60a5fa);
-    animation: spin 6s linear infinite;
-}
-
-.photo-ring::after {
-    inset: -20px;
-    filter: blur(28px);
-    opacity: 0.55;
-}
-
-.avatar {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 5px solid var(--bg);
-    object-fit: cover;
-    background: var(--card-solid);
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.planet {
-    position: absolute;
-    top: calc(50% - 17px);
-    left: calc(50% - 32px);
-    width: 64px;
-    height: 34px;
+    width: 340px;
+    height: 340px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 700;
+}
+
+.wave {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 2px solid rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.35);
+    animation: wave 4.5s ease-out infinite;
+}
+
+.wave:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.wave:nth-child(3) {
+    animation-delay: 3s;
+}
+
+@keyframes wave {
+    from {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    to {
+        transform: scale(1.55);
+        opacity: 0;
+    }
+}
+
+.photo {
+    position: relative;
+    z-index: 1;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--accent);
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.25),
+                0 16px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
     background: var(--card-solid);
-    border: 1px solid rgba(165, 180, 252, 0.4);
-    box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
 }
 
-.p1 {
-    animation: orbit-big 18s linear infinite;
+.photo:hover {
+    transform: scale(1.04) rotate(3deg);
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 10px rgba(167, 139, 250, 0.35),
+                0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
-.p3 {
-    animation: orbit-big 18s linear infinite;
-    animation-delay: -9s;
-}
-
-.p2 {
-    animation: orbit-small 12s linear infinite reverse;
-    animation-delay: -3s;
-    border-color: rgba(244, 114, 182, 0.5);
-}
-
-.p4 {
-    animation: orbit-small 12s linear infinite reverse;
-    animation-delay: -9s;
-    border-color: rgba(244, 114, 182, 0.5);
-}
-
-@keyframes orbit-big {
-    from {
-        transform: rotate(0deg) translateX(180px) rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg) translateX(180px) rotate(-360deg);
-    }
-}
-
-@keyframes orbit-small {
-    from {
-        transform: rotate(0deg) translateX(130px) rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg) translateX(130px) rotate(-360deg);
-    }
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* ===== Sections ===== */
@@ -937,10 +877,8 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
     .shooting-star,
-    .planet,
-    .arch .arrow,
-    .photo-ring::before,
-    .photo-ring::after {
+    .wave,
+    .arch .arrow {
         animation: none;
     }
 
@@ -1005,14 +943,15 @@ footer {
         padding-top: 1.5rem;
     }
 
-    /* the orbit is 380px wide, shrink it for phones */
-    .hero-side {
-        overflow: hidden;
+    .photo-wave {
+        width: 260px;
+        height: 260px;
     }
 
-    .orbit {
-        scale: 0.7;
-        margin: -55px 0;
+    .photo,
+    .wave {
+        width: 170px;
+        height: 170px;
     }
 
     .about-grid,
