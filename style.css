@@ -637,3 +637,56 @@ a:focus-visible {
 .course small {
     color: var(--muted);
 }
+
+/* ===== Contact ===== */
+.contacts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.2s;
+    min-width: 0;
+}
+
+.contact:hover {
+    border-color: #60a5fa;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+}
+
+.contact .icon {
+    font-size: 1.5rem;
+}
+
+.contact span:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 0.92rem;
+}
+
+.contact small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 2rem 1rem 2.5rem;
+    border-top: 1px solid var(--border);
+}
