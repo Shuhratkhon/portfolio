@@ -351,34 +351,6 @@ button:focus-visible {
     box-shadow: 0 10px 40px rgba(139, 92, 246, 0.6);
 }
 
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.7rem;
-    margin-top: 2.4rem;
-    max-width: 540px;
-}
-
-.hero-stats div {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 0.8rem 1rem;
-    backdrop-filter: blur(6px);
-}
-
-.hero-stats b {
-    display: block;
-    font-size: 1.5rem;
-    background: linear-gradient(90deg, #93c5fd, #c4b5fd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-stats small {
-    color: var(--muted);
-}
 
 /* photo with orbiting skills */
 .hero-side {
@@ -1051,10 +1023,6 @@ footer {
     .orbit {
         scale: 0.7;
         margin: -55px 0;
-    }
-
-    .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .about-grid,
