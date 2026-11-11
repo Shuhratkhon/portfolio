@@ -6,10 +6,11 @@ My personal portfolio website: who I am, my skills, projects, achievements and t
 
 ## Sections
 - Hero with my photo and my main tools orbiting around it
-- About and skills
+- About and skills (programming languages, data science libraries, web, tools)
 - Projects with architecture diagrams for PharmVault, Game Reviews Analysis and Solar System, plus a filter
 - Achievements and scores
 - Courses roadmap (finished / in progress / planned)
+- Beyond code: languages I speak and my hobbies
 - Contact
 
 ## Built with
