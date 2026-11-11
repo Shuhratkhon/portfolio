@@ -97,6 +97,158 @@
                 </div>
             </div>
         </section>
+
+        <!-- arrow head used by all the diagrams -->
+        <svg width="0" height="0" class="hidden-defs" aria-hidden="true">
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0 L10 5 L0 10 z" fill="#60a5fa" />
+                </marker>
+            </defs>
+        </svg>
+
+        <section class="section container" id="projects">
+            <p class="eyebrow">03 / PROJECTS</p>
+            <h2>Things I've built</h2>
+            <p class="section-lead">The three big ones come with a diagram of how they work inside. Everything else is below.</p>
+
+            <div class="filters" id="filters">
+                <button class="filter active" data-filter="all">All</button>
+                <button class="filter" data-filter="web">Web</button>
+                <button class="filter" data-filter="data">Data &amp; ML</button>
+                <button class="filter" data-filter="python">Python</button>
+            </div>
+
+            <div class="featured">
+                <!-- PharmVault -->
+                <article class="project big" data-tags="web data">
+                    <div class="project-info">
+                        <p class="tag">WEB · DATABASE</p>
+                        <h3>PharmVault</h3>
+                        <p>Pharmacy stock management website. Each pharmacy logs in and manages its own medicines, with warnings for low stock and close expiry dates, search across names, ingredients and illnesses, a dashboard with charts and a full change history. A second read-only "Web Stock" holds 18,186 real US medicines.</p>
+                        <div class="chips"><span>Python</span><span>Flask</span><span>PostgreSQL</span><span>Chart.js</span><span>Render</span></div>
+                        <div class="links">
+                            <a href="https://pharmvault-u5k0.onrender.com" target="_blank" rel="noopener noreferrer">Live site ↗</a>
+                            <a href="https://github.com/Shuhratkhon/pharmvault" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                        </div>
+                    </div>
+                    <svg class="arch" viewBox="0 0 460 190" role="img" aria-labelledby="pv-title">
+                        <title id="pv-title">PharmVault architecture: the browser talks to a Flask JSON API, which reads and writes PostgreSQL on Neon. An import script loads CSV datasets into the database.</title>
+                        <g class="box"><rect x="10" y="20" width="120" height="56" rx="10" /><text x="70" y="44">Browser</text><text class="sub" x="70" y="62">HTML · JS · Chart.js</text></g>
+                        <g class="box main"><rect x="170" y="20" width="120" height="56" rx="10" /><text x="230" y="44">Flask API</text><text class="sub" x="230" y="62">login · JSON routes</text></g>
+                        <g class="box db"><rect x="330" y="20" width="120" height="56" rx="10" /><text x="390" y="44">PostgreSQL</text><text class="sub" x="390" y="62">Neon · 10 tables</text></g>
+                        <g class="box"><rect x="10" y="120" width="120" height="56" rx="10" /><text x="70" y="144">CSV datasets</text><text class="sub" x="70" y="162">FDA NDC · NADAC</text></g>
+                        <g class="box"><rect x="170" y="120" width="120" height="56" rx="10" /><text x="230" y="144">import_data.py</text><text class="sub" x="230" y="162">clean + load</text></g>
+                        <path class="arrow" d="M132 48 H168" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M292 48 H328" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M132 148 H168" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M292 148 H390 V78" marker-end="url(#arrow)" />
+                        <text class="note" x="390" y="110">hosted on Render</text>
+                    </svg>
+                </article>
+
+                <!-- Game reviews -->
+                <article class="project big" data-tags="data python">
+                    <div class="project-info">
+                        <p class="tag">DATA · MACHINE LEARNING</p>
+                        <h3>Game Reviews Analysis</h3>
+                        <p>Crawled the 100 most-liked Google Play reviews per year (2024–2026) for 5 Supercell games, sorted them into 9 gaming topics and charted how ratings changed. Then I trained sentiment models; tuned Logistic Regression reached 84% accuracy.</p>
+                        <div class="chips"><span>Python</span><span>pandas</span><span>scikit-learn</span><span>Matplotlib</span><span>google-play-scraper</span></div>
+                        <div class="links">
+                            <a href="https://github.com/Shuhratkhon/game_reviews_project" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                        </div>
+                    </div>
+                    <svg class="arch" viewBox="0 0 460 190" role="img" aria-labelledby="gr-title">
+                        <title id="gr-title">Game reviews pipeline: Google Play reviews are crawled into a CSV dataset, which feeds both an analysis script that makes charts and a model script that trains sentiment classifiers.</title>
+                        <g class="box"><rect x="10" y="20" width="120" height="56" rx="10" /><text x="70" y="44">Google Play</text><text class="sub" x="70" y="62">5 Supercell games</text></g>
+                        <g class="box main"><rect x="170" y="20" width="120" height="56" rx="10" /><text x="230" y="44">crawler.py</text><text class="sub" x="230" y="62">top-liked reviews</text></g>
+                        <g class="box db"><rect x="330" y="20" width="120" height="56" rx="10" /><text x="390" y="44">reviews.csv</text><text class="sub" x="390" y="62">1,500 reviews</text></g>
+                        <g class="box main"><rect x="170" y="120" width="120" height="56" rx="10" /><text x="230" y="144">analysis.py</text><text class="sub" x="230" y="162">topics · ratings</text></g>
+                        <g class="box main"><rect x="330" y="120" width="120" height="56" rx="10" /><text x="390" y="144">model.py</text><text class="sub" x="390" y="162">TF-IDF · LR · SVM</text></g>
+                        <g class="box"><rect x="10" y="120" width="120" height="56" rx="10" /><text x="70" y="144">charts/</text><text class="sub" x="70" y="162">per game, per year</text></g>
+                        <path class="arrow" d="M132 48 H168" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M292 48 H328" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M390 78 V118" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M370 78 L270 118" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M168 148 H132" marker-end="url(#arrow)" />
+                    </svg>
+                </article>
+
+                <!-- Solar system -->
+                <article class="project big" data-tags="web">
+                    <div class="project-info">
+                        <p class="tag">WEB · 3D</p>
+                        <h3>Solar System</h3>
+                        <p>An interactive 3D solar system in the browser. Planets orbit and spin around a glowing Sun, you can fly the camera around, hover a planet to see its name and click it to open an info window with its own 3D model. There is also a global like counter that updates live.</p>
+                        <div class="chips"><span>JavaScript</span><span>Three.js</span><span>Supabase</span><span>GitHub Pages</span></div>
+                        <div class="links">
+                            <a href="https://shuhratkhon.github.io/solar_system_project/" target="_blank" rel="noopener noreferrer">Live site ↗</a>
+                            <a href="https://github.com/Shuhratkhon/solar_system_project" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                        </div>
+                    </div>
+                    <svg class="arch" viewBox="0 0 460 190" role="img" aria-labelledby="ss-title">
+                        <title id="ss-title">Solar System architecture: planet textures go into a Three.js scene, rendered through a bloom pass to the screen. A raycaster turns mouse hover and clicks into planet info windows, and the like button syncs with Supabase.</title>
+                        <g class="box"><rect x="10" y="20" width="120" height="56" rx="10" /><text x="70" y="44">Textures</text><text class="sub" x="70" y="62">planets · sun · stars</text></g>
+                        <g class="box main"><rect x="170" y="20" width="120" height="56" rx="10" /><text x="230" y="44">Three.js scene</text><text class="sub" x="230" y="62">orbits · camera</text></g>
+                        <g class="box"><rect x="330" y="20" width="120" height="56" rx="10" /><text x="390" y="44">Bloom pass</text><text class="sub" x="390" y="62">glowing sun</text></g>
+                        <g class="box"><rect x="10" y="120" width="120" height="56" rx="10" /><text x="70" y="144">Mouse</text><text class="sub" x="70" y="162">hover · click</text></g>
+                        <g class="box main"><rect x="170" y="120" width="120" height="56" rx="10" /><text x="230" y="144">Raycaster</text><text class="sub" x="230" y="162">planet info window</text></g>
+                        <g class="box db"><rect x="330" y="120" width="120" height="56" rx="10" /><text x="390" y="144">Supabase</text><text class="sub" x="390" y="162">live likes</text></g>
+                        <path class="arrow" d="M132 48 H168" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M292 48 H328" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M132 148 H168" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M230 118 V78" marker-end="url(#arrow)" />
+                        <path class="arrow" d="M292 148 H328" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+                    </svg>
+                </article>
+            </div>
+
+            <div class="small-projects">
+                <article class="project" data-tags="web">
+                    <p class="tag">WEB · TEAM PROJECT</p>
+                    <h3>Overlap</h3>
+                    <p>Campus app where students find course mates they overlap with. Built for Web Programming with Rahimjon and Asilbek (Team 2).</p>
+                    <div class="links">
+                        <a href="https://overlaps.tech" target="_blank" rel="noopener noreferrer">overlaps.tech ↗</a>
+                        <a href="https://shuhratkhon.github.io/gachon_university_works/web_programming_course/Group_project/details.html" target="_blank" rel="noopener noreferrer">Details ↗</a>
+                    </div>
+                </article>
+                <article class="project" data-tags="data python">
+                    <p class="tag">DATA · REGRESSION</p>
+                    <h3>Car Price Prediction</h3>
+                    <p>Linear regression on a car price dataset, checking engine size, mileage and feature correlation, with MAE and R² and charts of actual vs predicted prices.</p>
+                    <div class="chips"><span>pandas</span><span>scikit-learn</span><span>statsmodels</span></div>
+                </article>
+                <article class="project" data-tags="data python">
+                    <p class="tag">ML · COURSE WORK</p>
+                    <h3>Machine Learning Labs</h3>
+                    <p>Spam email filter, KNN handwritten digit recognition, PCA, SVM multiclass classification and K-means clustering.</p>
+                    <div class="links">
+                        <a href="https://github.com/Shuhratkhon/gachon_university_works/tree/main/machine_learning_course" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                    </div>
+                </article>
+                <article class="project" data-tags="web">
+                    <p class="tag">WEB · COURSE WORK</p>
+                    <h3>Web Programming Course</h3>
+                    <p>Every weekly homework: HTML/CSS exercises, six public API apps, form validation, a book search and an accessibility audit.</p>
+                    <div class="links">
+                        <a href="https://shuhratkhon.github.io/gachon_university_works/web_programming_course/index.html" target="_blank" rel="noopener noreferrer">Open ↗</a>
+                    </div>
+                </article>
+                <article class="project" data-tags="python">
+                    <p class="tag">PYTHON · CLI</p>
+                    <h3>Book Recommender</h3>
+                    <p>Terminal app that searches, recommends and adds books from a JSON file, and shows simple statistics.</p>
+                    <div class="chips"><span>Python</span><span>JSON</span></div>
+                </article>
+                <article class="project" data-tags="python">
+                    <p class="tag">PYTHON · CLI</p>
+                    <h3>Contact Book</h3>
+                    <p>My first Python assignment: add, search, edit and delete contacts, saved to a JSON file.</p>
+                    <div class="chips"><span>Python</span><span>JSON</span></div>
+                </article>
+            </div>
+        </section>
     </main>
 </body>
 </html>
