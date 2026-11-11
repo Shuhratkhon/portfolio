@@ -5,7 +5,7 @@ My personal portfolio website: who I am, my skills, projects, achievements and t
 **Live:** https://shuhratkhon.github.io/portfolio/
 
 ## Sections
-- Hero with a small workflow diagram (collect → analyse → store → show)
+- Hero with my photo and my main tools orbiting around it
 - About and skills
 - Projects with architecture diagrams for PharmVault, Game Reviews Analysis and Solar System, plus a filter
 - Achievements and scores
@@ -14,7 +14,7 @@ My personal portfolio website: who I am, my skills, projects, achievements and t
 
 ## Built with
 - HTML5
-- CSS3 (no frameworks, same colours as my course site)
+- CSS3 (no frameworks, dark space theme with the same falling stars as my course site)
 - JavaScript (project filter, fade-in on scroll, active nav link)
 - Inline SVG for the diagrams
 - GitHub Pages for hosting
