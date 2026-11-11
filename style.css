@@ -690,3 +690,25 @@ footer {
     padding: 2rem 1rem 2.5rem;
     border-top: 1px solid var(--border);
 }
+
+/* ===== Scroll effects (added by script.js) ===== */
+.fade {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.nav a.current {
+    color: var(--text);
+    background: #1e3a8a;
+}
+
+.filter:focus-visible {
+    outline: 3px solid #fbbf24;
+    outline-offset: 2px;
+}
