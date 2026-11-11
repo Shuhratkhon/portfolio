@@ -565,11 +565,18 @@ button:focus-visible {
 }
 
 .skill-group h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #a5b4fc;
     margin-bottom: 0.9rem;
+}
+
+.skill-icon {
+    font-size: 1.1rem;
 }
 
 .chips {
