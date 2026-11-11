@@ -878,7 +878,8 @@ footer {
 @media (prefers-reduced-motion: reduce) {
     .shooting-star,
     .wave,
-    .arch .arrow {
+    .arch .arrow,
+    .marquee-track {
         animation: none;
     }
 
@@ -1092,4 +1093,114 @@ footer {
     .life-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ===== Logo strip (idea from Neon's homepage) ===== */
+.logo-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: rgba(5, 7, 15, 0.55);
+    padding: 1.1rem 0 1.3rem;
+}
+
+.strip-label {
+    width: min(1100px, calc(100% - 32px));
+    margin: 0 auto 0.9rem;
+    font: 0.72rem Consolas, monospace;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+}
+
+/* fade the logos out at both edges */
+.marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 2.6rem;
+    width: max-content;
+    animation: scroll-logos 45s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-logos {
+    to {
+        transform: translateX(calc(-50% - 1.3rem));
+    }
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #cbd5e1;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.logo-item:hover {
+    opacity: 1;
+}
+
+.logo-item img,
+.logo-item .letter {
+    width: 30px;
+    height: 30px;
+}
+
+/* black logos turned white */
+img.mono {
+    filter: invert(1);
+}
+
+/* coloured letter badges for apps without a logo online */
+.letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.75em;
+    flex-shrink: 0;
+}
+
+.letter.excel {
+    background: #1d6f42;
+}
+
+.letter.word {
+    background: #2b579a;
+}
+
+.letter.seaborn {
+    background: #4c72b0;
+}
+
+/* logos inside chips */
+.chips span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.chips img,
+.chips .letter {
+    width: 16px;
+    height: 16px;
+}
+
+.chips .letter {
+    font-size: 0.65rem;
+    border-radius: 4px;
+    padding: 0;
+    border: 0;
 }
